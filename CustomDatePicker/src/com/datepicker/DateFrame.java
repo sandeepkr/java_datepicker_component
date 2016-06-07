@@ -297,6 +297,9 @@ public class DateFrame extends JFrame implements MouseListener {
 			parentFrame.calendar.setTime(parentFrame.parentPanel
 					.getSelectedDate());
 			int currentMonth = parentFrame.calendar.get(Calendar.MONTH);
+			if (currentMonth == 0) {
+				parentFrame.prevYearButton.doClick();
+			}
 			parentFrame.calendar.add(Calendar.MONTH, -1);
 			parentFrame.setSelectedMonth(parentFrame.calendar
 					.get(Calendar.MONTH));
@@ -308,9 +311,6 @@ public class DateFrame extends JFrame implements MouseListener {
 			}
 			parentFrame.parentPanel.setSelectedDate(parentFrame.calendar
 					.getTime());
-			if (currentMonth == 0) {
-				parentFrame.updateYearLabel(parentFrame.calendar.getTime());
-			}
 			parentFrame.dayPanel.updateDayPanel(parentFrame.parentPanel
 					.getSelectedDate());
 		}
@@ -328,6 +328,9 @@ public class DateFrame extends JFrame implements MouseListener {
 			parentFrame.calendar.setTime(parentFrame.parentPanel
 					.getSelectedDate());
 			int currentMonth = parentFrame.calendar.get(Calendar.MONTH);
+			if (currentMonth == 11) {
+				parentFrame.nextYearButton.doClick();
+			}
 			parentFrame.calendar.add(Calendar.MONTH, +1);
 			parentFrame.setSelectedMonth(parentFrame.calendar
 					.get(Calendar.MONTH));
@@ -339,9 +342,6 @@ public class DateFrame extends JFrame implements MouseListener {
 			}
 			parentFrame.parentPanel.setSelectedDate(parentFrame.calendar
 					.getTime());
-			if (currentMonth == 11) {
-				parentFrame.updateYearLabel(parentFrame.calendar.getTime());
-			}
 			parentFrame.dayPanel.updateDayPanel(parentFrame.parentPanel
 					.getSelectedDate());
 		}
